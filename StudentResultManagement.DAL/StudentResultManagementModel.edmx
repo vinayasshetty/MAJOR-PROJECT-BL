@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StudentResultManagementSystemProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" />
+          <Property Name="EmailId" Type="varchar" MaxLength="30" />
+          <Property Name="Password" Type="nchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Name="BranchId" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="BranchName" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Semester">
+          <Key>
+            <PropertyRef Name="SemesterNumber" />
+          </Key>
+          <Property Name="SemesterNumber" Type="int" Nullable="false" />
+          <Property Name="AcademicYear" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="UniversitySeatNumber" />
+          </Key>
+          <Property Name="UniversitySeatNumber" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="20" />
+          <Property Name="LastName" Type="varchar" MaxLength="10" />
+          <Property Name="SemesterNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="StudentDetails">
+          <Key>
+            <PropertyRef Name="UniversitySeatNumber" />
+          </Key>
+          <Property Name="UniversitySeatNumber" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="20" />
+          <Property Name="LastName" Type="varchar" MaxLength="10" />
+          <Property Name="EmailId" Type="varchar" MaxLength="30" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="ContactNumber" Type="bigint" />
+          <Property Name="OptionalContactNumber" Type="bigint" />
+          <Property Name="DateOfBirth" Type="date" />
+        </EntityType>
+        <EntityType Name="StudentResult">
+          <Key>
+            <PropertyRef Name="ResultId" />
+          </Key>
+          <Property Name="ResultId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminId" Type="int" />
+          <Property Name="UniversitySeatNumber" Type="varchar" MaxLength="30" />
+          <Property Name="SubjectId" Type="varchar" MaxLength="10" />
+          <Property Name="Marks" Type="int" />
+          <Property Name="Grade" Type="varchar" MaxLength="10" />
+          <Property Name="Result" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="SubjectId" />
+          </Key>
+          <Property Name="SubjectId" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SubjectName" Type="varchar" MaxLength="20" />
+          <Property Name="BranchId" Type="varchar" MaxLength="10" />
+          <Property Name="SemesterNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="TotalScore">
+          <Key>
+            <PropertyRef Name="UniversitySeatNumber" />
+          </Key>
+          <Property Name="UniversitySeatNumber" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Total" Type="int" />
+        </EntityType>
+        <Association Name="FK__Student__Semeste__73BA3083">
+          <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semester">
+              <PropertyRef Name="SemesterNumber" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="SemesterNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentRe__Admin__7C4F7684">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+          <End Role="StudentResult" Type="Self.StudentResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminId" />
+            </Principal>
+            <Dependent Role="StudentResult">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentRe__Subje__7E37BEF6">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="StudentResult" Type="Self.StudentResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="SubjectId" />
+            </Principal>
+            <Dependent Role="StudentResult">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentRe__Unive__7D439ABD">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="StudentResult" Type="Self.StudentResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="UniversitySeatNumber" />
+            </Principal>
+            <Dependent Role="StudentResult">
+              <PropertyRef Name="UniversitySeatNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subject__BranchI__59FA5E80">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subject__Semeste__5AEE82B9">
+          <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
+          <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semester">
+              <PropertyRef Name="SemesterNumber" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="SemesterNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StudentResultManagementSystemProjectModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Branch" EntityType="Self.Branch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Semester" EntityType="Self.Semester" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentDetails" EntityType="Self.StudentDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentResult" EntityType="Self.StudentResult" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TotalScore" EntityType="Self.TotalScore" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Student__Semeste__73BA3083" Association="Self.FK__Student__Semeste__73BA3083">
+            <End Role="Semester" EntitySet="Semester" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentRe__Admin__7C4F7684" Association="Self.FK__StudentRe__Admin__7C4F7684">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="StudentResult" EntitySet="StudentResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentRe__Subje__7E37BEF6" Association="Self.FK__StudentRe__Subje__7E37BEF6">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="StudentResult" EntitySet="StudentResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentRe__Unive__7D439ABD" Association="Self.FK__StudentRe__Unive__7D439ABD">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="StudentResult" EntitySet="StudentResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subject__BranchI__59FA5E80" Association="Self.FK__Subject__BranchI__59FA5E80">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Subject" EntitySet="Subject" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subject__Semeste__5AEE82B9" Association="Self.FK__Subject__Semeste__5AEE82B9">
+            <End Role="Semester" EntitySet="Semester" />
+            <End Role="Subject" EntitySet="Subject" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StudentResultManagementSystemProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="EmailId" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="StudentResults" Relationship="Self.FK__StudentRe__Admin__7C4F7684" FromRole="Admin" ToRole="StudentResult" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Name="BranchId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BranchName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Subjects" Relationship="Self.FK__Subject__BranchI__59FA5E80" FromRole="Branch" ToRole="Subject" />
+        </EntityType>
+        <EntityType Name="Semester">
+          <Key>
+            <PropertyRef Name="SemesterNumber" />
+          </Key>
+          <Property Name="SemesterNumber" Type="Int32" Nullable="false" />
+          <Property Name="AcademicYear" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Students" Relationship="Self.FK__Student__Semeste__73BA3083" FromRole="Semester" ToRole="Student" />
+          <NavigationProperty Name="Subjects" Relationship="Self.FK__Subject__Semeste__5AEE82B9" FromRole="Semester" ToRole="Subject" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="UniversitySeatNumber" />
+          </Key>
+          <Property Name="UniversitySeatNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SemesterNumber" Type="Int32" />
+          <NavigationProperty Name="Semester" Relationship="Self.FK__Student__Semeste__73BA3083" FromRole="Student" ToRole="Semester" />
+          <NavigationProperty Name="StudentResults" Relationship="Self.FK__StudentRe__Unive__7D439ABD" FromRole="Student" ToRole="StudentResult" />
+        </EntityType>
+        <EntityType Name="StudentDetail">
+          <Key>
+            <PropertyRef Name="UniversitySeatNumber" />
+          </Key>
+          <Property Name="UniversitySeatNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EmailId" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContactNumber" Type="Int64" />
+          <Property Name="OptionalContactNumber" Type="Int64" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="StudentResult">
+          <Key>
+            <PropertyRef Name="ResultId" />
+          </Key>
+          <Property Name="ResultId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminId" Type="Int32" />
+          <Property Name="UniversitySeatNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SubjectId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Marks" Type="Int32" />
+          <Property Name="Grade" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Result" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Admin" Relationship="Self.FK__StudentRe__Admin__7C4F7684" FromRole="StudentResult" ToRole="Admin" />
+          <NavigationProperty Name="Student" Relationship="Self.FK__StudentRe__Unive__7D439ABD" FromRole="StudentResult" ToRole="Student" />
+          <NavigationProperty Name="Subject" Relationship="Self.FK__StudentRe__Subje__7E37BEF6" FromRole="StudentResult" ToRole="Subject" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="SubjectId" />
+          </Key>
+          <Property Name="SubjectId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SubjectName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BranchId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SemesterNumber" Type="Int32" />
+          <NavigationProperty Name="Branch" Relationship="Self.FK__Subject__BranchI__59FA5E80" FromRole="Subject" ToRole="Branch" />
+          <NavigationProperty Name="Semester" Relationship="Self.FK__Subject__Semeste__5AEE82B9" FromRole="Subject" ToRole="Semester" />
+          <NavigationProperty Name="StudentResults" Relationship="Self.FK__StudentRe__Subje__7E37BEF6" FromRole="Subject" ToRole="StudentResult" />
+        </EntityType>
+        <EntityType Name="TotalScore">
+          <Key>
+            <PropertyRef Name="UniversitySeatNumber" />
+          </Key>
+          <Property Name="UniversitySeatNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Total" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__StudentRe__Admin__7C4F7684">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+          <End Role="StudentResult" Type="Self.StudentResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminId" />
+            </Principal>
+            <Dependent Role="StudentResult">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subject__BranchI__59FA5E80">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Student__Semeste__73BA3083">
+          <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semester">
+              <PropertyRef Name="SemesterNumber" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="SemesterNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subject__Semeste__5AEE82B9">
+          <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
+          <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semester">
+              <PropertyRef Name="SemesterNumber" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="SemesterNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentRe__Unive__7D439ABD">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="StudentResult" Type="Self.StudentResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="UniversitySeatNumber" />
+            </Principal>
+            <Dependent Role="StudentResult">
+              <PropertyRef Name="UniversitySeatNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentRe__Subje__7E37BEF6">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="StudentResult" Type="Self.StudentResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="SubjectId" />
+            </Principal>
+            <Dependent Role="StudentResult">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StudentResultManagementSystemProjectEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Branches" EntityType="Self.Branch" />
+          <EntitySet Name="Semesters" EntityType="Self.Semester" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="StudentDetails" EntityType="Self.StudentDetail" />
+          <EntitySet Name="StudentResults" EntityType="Self.StudentResult" />
+          <EntitySet Name="Subjects" EntityType="Self.Subject" />
+          <EntitySet Name="TotalScores" EntityType="Self.TotalScore" />
+          <AssociationSet Name="FK__StudentRe__Admin__7C4F7684" Association="Self.FK__StudentRe__Admin__7C4F7684">
+            <End Role="Admin" EntitySet="Admins" />
+            <End Role="StudentResult" EntitySet="StudentResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subject__BranchI__59FA5E80" Association="Self.FK__Subject__BranchI__59FA5E80">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Subject" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student__Semeste__73BA3083" Association="Self.FK__Student__Semeste__73BA3083">
+            <End Role="Semester" EntitySet="Semesters" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subject__Semeste__5AEE82B9" Association="Self.FK__Subject__Semeste__5AEE82B9">
+            <End Role="Semester" EntitySet="Semesters" />
+            <End Role="Subject" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentRe__Unive__7D439ABD" Association="Self.FK__StudentRe__Unive__7D439ABD">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="StudentResult" EntitySet="StudentResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentRe__Subje__7E37BEF6" Association="Self.FK__StudentRe__Subje__7E37BEF6">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="StudentResult" EntitySet="StudentResults" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StudentResultManagementSystemProjectModelStoreContainer" CdmEntityContainer="StudentResultManagementSystemProjectEntities1">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="StudentResultManagementSystemProjectModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Branches">
+            <EntityTypeMapping TypeName="StudentResultManagementSystemProjectModel.Branch">
+              <MappingFragment StoreEntitySet="Branch">
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Semesters">
+            <EntityTypeMapping TypeName="StudentResultManagementSystemProjectModel.Semester">
+              <MappingFragment StoreEntitySet="Semester">
+                <ScalarProperty Name="SemesterNumber" ColumnName="SemesterNumber" />
+                <ScalarProperty Name="AcademicYear" ColumnName="AcademicYear" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="StudentResultManagementSystemProjectModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="UniversitySeatNumber" ColumnName="UniversitySeatNumber" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="SemesterNumber" ColumnName="SemesterNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentDetails">
+            <EntityTypeMapping TypeName="StudentResultManagementSystemProjectModel.StudentDetail">
+              <MappingFragment StoreEntitySet="StudentDetails">
+                <ScalarProperty Name="UniversitySeatNumber" ColumnName="UniversitySeatNumber" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="OptionalContactNumber" ColumnName="OptionalContactNumber" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentResults">
+            <EntityTypeMapping TypeName="StudentResultManagementSystemProjectModel.StudentResult">
+              <MappingFragment StoreEntitySet="StudentResult">
+                <ScalarProperty Name="ResultId" ColumnName="ResultId" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="UniversitySeatNumber" ColumnName="UniversitySeatNumber" />
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+                <ScalarProperty Name="Marks" ColumnName="Marks" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subjects">
+            <EntityTypeMapping TypeName="StudentResultManagementSystemProjectModel.Subject">
+              <MappingFragment StoreEntitySet="Subject">
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="SemesterNumber" ColumnName="SemesterNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TotalScores">
+            <EntityTypeMapping TypeName="StudentResultManagementSystemProjectModel.TotalScore">
+              <MappingFragment StoreEntitySet="TotalScore">
+                <ScalarProperty Name="UniversitySeatNumber" ColumnName="UniversitySeatNumber" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

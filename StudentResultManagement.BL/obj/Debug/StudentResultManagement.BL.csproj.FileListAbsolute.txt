@@ -1,0 +1,34 @@
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.BL\bin\Debug\StudentResultManagement.BL.dll
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.BL\bin\Debug\StudentResultManagement.BL.pdb
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.BL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.BL\bin\Debug\StudentResultManagement.DAL.dll
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.BL\bin\Debug\StudentResultManagement.DTO.dll
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.BL\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.BL\bin\Debug\EntityFramework.dll
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.BL\bin\Debug\StudentResultManagement.DAL.pdb
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.BL\bin\Debug\StudentResultManagement.DTO.pdb
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.BL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.BL\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.BL\bin\Debug\EntityFramework.xml
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.BL\obj\Debug\StudentResultManagement.BL.csprojResolveAssemblyReference.cache
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.BL\obj\Debug\StudentResultManagement.BL.dll
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.BL\obj\Debug\StudentResultManagement.BL.pdb
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.BL\bin\Debug\log4net.dll
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.BL\bin\Debug\log4net.xml
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.BL\bin\Debug\StudentResultManagement.BL.dll
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.BL\bin\Debug\StudentResultManagement.BL.pdb
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.BL\bin\Debug\log4net.dll
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.BL\bin\Debug\Newtonsoft.Json.dll
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.BL\bin\Debug\StudentResultManagement.DAL.dll
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.BL\bin\Debug\StudentResultManagement.DTO.dll
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.BL\bin\Debug\System.Net.Http.Formatting.dll
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.BL\bin\Debug\EntityFramework.dll
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.BL\bin\Debug\StudentResultManagement.DAL.pdb
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.BL\bin\Debug\StudentResultManagement.DTO.pdb
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.BL\bin\Debug\log4net.xml
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.BL\bin\Debug\Newtonsoft.Json.xml
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.BL\bin\Debug\System.Net.Http.Formatting.xml
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.BL\bin\Debug\EntityFramework.xml
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.BL\obj\Debug\StudentResultManagement.BL.csprojResolveAssemblyReference.cache
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.BL\obj\Debug\StudentResultManagement.BL.dll
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.BL\obj\Debug\StudentResultManagement.BL.pdb

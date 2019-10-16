@@ -1,0 +1,20 @@
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.DTO\bin\Debug\StudentResultManagement.DTO.dll
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.DTO\bin\Debug\StudentResultManagement.DTO.pdb
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.DTO\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.DTO\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.DTO\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.DTO\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.DTO\obj\Debug\StudentResultManagement.DTO.dll
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.DTO\obj\Debug\StudentResultManagement.DTO.pdb
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.DTO\bin\Debug\log4net.dll
+C:\Users\Vinaya.SS\Documents\Visual Studio 2015\Projects\Advance\MAJOR PROJECT\StudentResultManagement\StudentResultManagement.DTO\bin\Debug\log4net.xml
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.DTO\bin\Debug\StudentResultManagement.DTO.dll
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.DTO\bin\Debug\StudentResultManagement.DTO.pdb
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.DTO\bin\Debug\log4net.dll
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.DTO\bin\Debug\Newtonsoft.Json.dll
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.DTO\bin\Debug\System.Net.Http.Formatting.dll
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.DTO\bin\Debug\log4net.xml
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.DTO\bin\Debug\Newtonsoft.Json.xml
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.DTO\bin\Debug\System.Net.Http.Formatting.xml
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.DTO\obj\Debug\StudentResultManagement.DTO.dll
+D:\Vinaya_SS\MajorProject\StudentResultManagement\StudentResultManagement.DTO\obj\Debug\StudentResultManagement.DTO.pdb
